@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import { Button, Input } from "../../shared/ui"
+import { Button, Input } from "@shared/ui"
 
 export const Login = () => {
   const { register } = useForm()
