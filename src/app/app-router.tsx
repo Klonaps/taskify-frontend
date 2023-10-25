@@ -1,27 +1,42 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
+import { RootLayout } from "./layouts/root-layout";
+import { AuthorizedLayout } from "./layouts/authorized-layout";
+import { UnauthorizedLayout } from "./layouts/unauthorized-layout";
+
 import { Home } from "@pages/home";
 import { Login } from "@pages/login";
 
-import Layout from "./layout";
-
 export const appRouter = createBrowserRouter([
   {
-    path: "/",
-    element: <Layout />,
+    element: <RootLayout />,
     children: [
       {
-        path: "/",
-        element: <Navigate to={'/app'} />,
+        element: <AuthorizedLayout />,
+        children: [
+          {
+            path: "/",
+            element: <Navigate to={"/app"} />,
+          },
+          {
+            path: "/app",
+            element: <Home />,
+          },
+          {
+            path: "/apps",
+            element: <Home />,
+          },
+        ],
       },
       {
-        path: "/app",
-        element: <Home />,
+        element: <UnauthorizedLayout />,
+        children: [
+          {
+            path: "/login",
+            element: <Login />,
+          },
+        ],
       },
     ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
   },
 ]);

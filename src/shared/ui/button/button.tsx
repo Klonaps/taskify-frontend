@@ -11,7 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   startContent?: ReactNode;
   endContent?: ReactNode;
   isLoading?: boolean;
-  handler: () => void;
+  handler?: () => void;
   cn?: string
 }
 
