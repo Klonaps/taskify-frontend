@@ -1,4 +1,4 @@
-import { IUser } from "@shared/types"
+import { IUser } from "@shared/types/types"
 import { baseInstance } from "."
 import { useUserStore } from "@shared/model/store"
 

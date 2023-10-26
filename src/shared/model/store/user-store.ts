@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import type {} from '@redux-devtools/extension'
+
 import { IUser } from '@shared/types'
 
 interface UserState {

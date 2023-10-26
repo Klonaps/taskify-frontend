@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, useState } from "react";
-import { UseFormRegister } from "react-hook-form";
+import { RegisterOptions, UseFormRegister } from "react-hook-form";
 import { twMerge } from "tailwind-merge";
 
 
@@ -8,8 +8,11 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   lable?: string;
   required?: boolean;
   register: UseFormRegister<any>;
+  registerOptions?: RegisterOptions;
   name: string;
   variant?: VariatType;
+  error?: boolean;
+  errorMessage?: string;
 }
 
 /** Input
@@ -51,6 +54,9 @@ export const Input = ({
   name,
   required,
   variant = 'default',
+  error,
+  errorMessage,
+  registerOptions = {},
   ...rest
 }: InputProps) => {
   const [isFocus, setIsFocus] = useState(false);
@@ -63,7 +69,7 @@ export const Input = ({
           className={twMerge(
             "select-none pointer-events-none inline-block",
             lableStyle[variant],
-            `${isFocus && lableFocusStyle[variant]}`
+            isFocus && lableFocusStyle[variant]
           )}
         >
           {lable}
@@ -74,7 +80,8 @@ export const Input = ({
         className={twMerge(
           "overflow-hidden transition-all duration-150 hover:border-blue-400 border-gray-300",
           boxStyle[variant],
-          `${isFocus && boxFocusStyle[variant]}`
+          isFocus && boxFocusStyle[variant],
+          error && 'border-red-500 hover:border-red-600 outline-red-300'
         )}
       >
         <input
@@ -82,7 +89,7 @@ export const Input = ({
             "w-full bg-transparent outline-none placeholder:text-[13px] placeholder:text-gray-500 text-[13px]",
             inputStyle[variant]
           )}
-          {...register(name)}
+          {...register(name, registerOptions)}
           id={name}
           name={name}
           onBlur={() => setIsFocus(false)}
@@ -90,6 +97,7 @@ export const Input = ({
           {...rest}
         />
       </div>
+      {error && errorMessage ? <p className="mt-1 text-[12px] text-red-500">{errorMessage}</p> : null}
     </div>
   );
 };

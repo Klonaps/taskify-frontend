@@ -1,1 +1,1 @@
-export type { IUser } from './types'
+export * from './types'

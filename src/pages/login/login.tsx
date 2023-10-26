@@ -1,50 +1,31 @@
-import { SubmitHandler, useForm } from "react-hook-form"
-import Logo from '@shared/ui/assets/logo.svg'
+import { Link } from "react-router-dom"
 
-import { Button, Input } from "@shared/ui"
-import { LoginDto } from "@shared/api"
-import { useUserStore } from "@shared/model/store"
+import Logo from '/logo.svg'
+import { LoginForm } from "@features/login-form"
 
 export const Login = () => {
-  const loginUser = useUserStore(state => state.loginUser)
-  const { register, handleSubmit } = useForm<LoginDto>()
-
-  const handleLogin: SubmitHandler<LoginDto> = data => {
-    console.log(data)
-  }
-
   return (
     <section className="w-full h-screen flex items-center justify-center">
       <div className="w-[450px] flex flex-col items-center">
-        <div className="w-[80px]">
+        <div className="w-[80px] mb-7">
           <img
             src={Logo}
             alt="Taskify"
-            className="object-cover aspect-square select-none"
+            className="object-cover aspect-square select-none pointer-events-none"
           />
         </div>
-        <form
-          className="w-full flex flex-col gap-3"
-          onSubmit={handleSubmit(handleLogin)}
-        >
-          <Input
-            name="login"
-            lable="Логин"
-            placeholder="email@gmail.com"
-            register={register}
-            autoComplete="usernamea"
-          />
-          <Input
-            name="password"
-            lable="Пароль"
-            register={register}
-            type="password"
-            placeholder="Введите ваш пароль"
-            autoComplete="current-password"
-          />
-          <Button text="Войти" size="large" cn="w-full" />
-        </form>
-        <p className="text-sm mt-5">Нет аккаунта? Зарегистрироваться</p>
+        <LoginForm />
+        <div className="text-sm mt-5">
+          <p>
+            Нет аккаунта?{" "}
+            <Link
+              to={"/register"}
+              className="text-blue-600 hover:text-blue-500"
+            >
+              Зарегистрироваться
+            </Link>
+          </p>
+        </div>
       </div>
     </section>
   );

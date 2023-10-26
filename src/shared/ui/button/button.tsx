@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
+import { Loader } from "..";
 
 type ButtonSizes = "small" | "medium" | "large";
 type ButtonStatus = "primary" | "secondary" | "outline";
@@ -42,7 +43,7 @@ export const Button = (props: ButtonProps) => {
       disabled={props.disabled || props.isLoading}
     >
       {props.startContent}
-      {props.isLoading ? <span className="loader" /> : <div>{props.text}</div>}
+      {props.isLoading ? <Loader /> : <div>{props.text}</div>}
       {props.endContent}
     </button>
   );
