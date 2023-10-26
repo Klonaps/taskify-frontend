@@ -3,23 +3,26 @@ import { SubmitHandler, useForm } from "react-hook-form"
 
 import { Button, Input } from "@shared/ui"
 
-import { useUserLogin } from "../api/login-form.api"
-import { LoginDto } from "../"
+import { useUserRegister } from "../api/register-form.api"
+import { RegisterDto } from ".."
+import { isAxiosError } from "axios"
 
-export const LoginForm = () => {
-  const { mutate, isPending, error } = useUserLogin()
-  const { register, handleSubmit, setError, formState } = useForm<LoginDto>()
+export const RegisterForm = () => {
+  const { mutate, isPending, error } = useUserRegister()
+  const { register, handleSubmit, setError, formState } = useForm<RegisterDto>()
   const fieldsErrors = formState.errors
 
   useEffect(() => {
     if (error) {
-      const errMessage = "Имя пользователя или пароль введены неверно";
-        setError("login", { message: errMessage }, { shouldFocus: false });
-        setError("password", { message: errMessage }, { shouldFocus: false });
+      if (isAxiosError(error)) {
+        const errMessage = error.response?.data.message
+        setError("login", { message: errMessage }, { shouldFocus: false })
+        setError("password", { message: errMessage }, { shouldFocus: false })
+      }
     }
-  }, [error, setError]);
+  }, [error, setError])
 
-  const handleLogin: SubmitHandler<LoginDto> = (data) => {
+  const handleLogin: SubmitHandler<RegisterDto> = (data) => {
     mutate(data)
   }
   

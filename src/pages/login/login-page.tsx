@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import Logo from '/logo.svg'
 import { LoginForm } from "@features/login-form"
 
-export const Login = () => {
+export const LoginPage = () => {
   return (
     <section className="w-full h-screen flex items-center justify-center">
       <div className="w-[450px] flex flex-col items-center">
@@ -14,6 +14,7 @@ export const Login = () => {
             className="object-cover aspect-square select-none pointer-events-none"
           />
         </div>
+        <h1 className="text-[32px] font-medium mb-7 select-none">Вход в Taskify</h1>
         <LoginForm />
         <div className="text-sm mt-5">
           <p>
@@ -28,5 +29,5 @@ export const Login = () => {
         </div>
       </div>
     </section>
-  );
+  )
 }

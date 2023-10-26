@@ -5,7 +5,8 @@ import { AuthorizedLayout } from "./layouts/authorized-layout";
 import { UnauthorizedLayout } from "./layouts/unauthorized-layout";
 
 import { Home } from "@pages/home";
-import { Login } from "@pages/login";
+import { LoginPage } from "@pages/login";
+import { RegisterPage } from "@pages/register";
 
 export const appRouter = createBrowserRouter([
   {
@@ -22,10 +23,6 @@ export const appRouter = createBrowserRouter([
             path: "/app",
             element: <Home />,
           },
-          {
-            path: "/apps",
-            element: <Home />,
-          },
         ],
       },
       {
@@ -33,7 +30,11 @@ export const appRouter = createBrowserRouter([
         children: [
           {
             path: "/login",
-            element: <Login />,
+            element: <LoginPage />,
+          },
+          {
+            path: "/register",
+            element: <RegisterPage />,
           },
         ],
       },
