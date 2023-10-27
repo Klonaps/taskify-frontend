@@ -7,14 +7,16 @@ export const LoginPage = () => {
   return (
     <section className="w-full h-screen flex items-center justify-center">
       <div className="w-[450px] flex flex-col items-center">
-        <div className="w-[80px] mb-7">
+        <div className="flex items-center justify-center gap-4 mb-7">
           <img
             src={Logo}
             alt="Taskify"
-            className="object-cover aspect-square select-none pointer-events-none"
+            className="w-[50px] aspect-square select-none pointer-events-none"
           />
+          <h1 className="text-[32px] font-medium select-none">
+            Вход в Taskify
+          </h1>
         </div>
-        <h1 className="text-[32px] font-medium mb-7 select-none">Вход в Taskify</h1>
         <LoginForm />
         <div className="text-sm mt-5">
           <p>
@@ -29,5 +31,5 @@ export const LoginPage = () => {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,11 +1,11 @@
 import { useEffect } from "react"
+import { isAxiosError } from "axios"
 import { SubmitHandler, useForm } from "react-hook-form"
 
 import { Button, Input } from "@shared/ui"
 
 import { useUserRegister } from "../api/register-form.api"
 import { RegisterDto } from ".."
-import { isAxiosError } from "axios"
 
 export const RegisterForm = () => {
   const { mutate, isPending, error } = useUserRegister()
