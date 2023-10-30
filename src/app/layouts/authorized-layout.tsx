@@ -1,7 +1,6 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-
-import { Sidebar } from "@widgets/sidebar";
 import { useUserStore } from "@shared/model/store/user-store";
+import { Navbar } from "@widgets/navbar";
 
 export const AuthorizedLayout = () => {
   const location = useLocation();
@@ -21,9 +20,11 @@ export const AuthorizedLayout = () => {
   }
 
   return (
-    <main className="w-full flex overflow-y-hidden">
-      <Sidebar />
-      <Outlet />
+    <main className="w-full flex flex-col items-center">
+      <Navbar />
+      <div className="w-full max-w-[1320px] flex justify-center">
+        <Outlet />
+      </div>
     </main>
   );
 };

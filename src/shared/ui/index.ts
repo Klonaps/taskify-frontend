@@ -1,3 +1,5 @@
 export { Input } from './input/input'
 export { Button } from './button/button'
 export { Loader } from './loader/loader'
+export { UserAvatar } from './user-avatar/user-avatar'
+export { HeaderButton } from './header-button/header-button'

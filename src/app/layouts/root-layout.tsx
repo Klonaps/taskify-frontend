@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom"
 
 import { useUserStore } from "@shared/model/store"
 import { checkAuth } from "@shared/api";
+import { LoadingContainer } from "@features/loading-container";
 
 export const RootLayout = () => {
   const accessToken = useUserStore((store) => store.accessToken);
@@ -17,7 +18,7 @@ export const RootLayout = () => {
     }
   }, [])
 
-  if (!isAuthChecked) return <div>Загрузка</div>
+  if (!isAuthChecked) return <LoadingContainer />
   return (
     <Outlet />
   )
