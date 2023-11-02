@@ -17,7 +17,7 @@ export const RegisterPage = () => {
             Регистрация в Taskify
           </h1>
         </div>
-        <h2 className="text-center mb-7 font-light">
+        <h2 className="text-center mb-7 font-light px-8">
           Присоединяйтесь к Taskify, с нами вы всегда будете на шаг впереди в
           выполнении своих обязанностей!
         </h2>

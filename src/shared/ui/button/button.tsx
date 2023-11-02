@@ -43,7 +43,7 @@ export const Button = (props: ButtonProps) => {
       disabled={props.disabled || props.isLoading}
     >
       {props.startContent}
-      {props.isLoading ? <Loader /> : <div>{props.text}</div>}
+      {props.isLoading ? <Loader /> : <div className="select-none">{props.text}</div>}
       {props.endContent}
     </button>
   );

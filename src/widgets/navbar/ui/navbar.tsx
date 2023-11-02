@@ -6,9 +6,9 @@ import { HeaderButton } from "@shared/ui"
 
 export const Navbar = () => {
   return (
-    <header className="w-full h-[60px] border-b border-b-gray-100 flex justify-center">
-      <nav className="w-full max-w-[1320px] h-full flex justify-between items-center">
-        <div className="flex gap-3 items-center h-full">
+    <header className="w-full h-[60px] min-h-[60px] border-b border-b-gray-100 flex justify-center">
+      <div className="w-full max-w-[1320px] px-[10px] h-full flex justify-between items-center">
+        <div className="flex gap-3 items-center h-full cursor-pointer">
           <img
             src={Logo}
             alt="Taskify"
@@ -22,7 +22,7 @@ export const Navbar = () => {
           </HeaderButton>
           <ProfileDropdown />
         </div>
-      </nav>
+      </div>
     </header>
   );
 };
