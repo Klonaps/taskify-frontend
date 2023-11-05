@@ -1,8 +1,11 @@
-import { CreateCategoryModal } from "@features/create-category-modal";
+import { AnimatePresence } from "framer-motion"
+
 import { Sidebar } from "@widgets/sidebar"
+import { CreateCategoryModal } from "@features/create-category-modal"
+import { useModalStore } from "@shared/model/store"
 
 export const Home = () => {
-  
+  const isCategoryCreateModalOpen = useModalStore((state) => state.isCreateCategoryModalOpen)
 
   return (
     <>
@@ -10,7 +13,9 @@ export const Home = () => {
         <Sidebar />
         <section></section>
       </div>
-      <CreateCategoryModal />
+      <AnimatePresence mode="wait">
+        {isCategoryCreateModalOpen && <CreateCategoryModal />}
+      </AnimatePresence>
     </>
   );
 }

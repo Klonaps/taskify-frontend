@@ -1,12 +1,14 @@
-import { API_HOST } from "@shared/config";
-import { useUserStore } from "@shared/model/store";
 import axios from "axios";
 
-const token = useUserStore.getState().accessToken
+import { useUserStore } from "@shared/model/store";
+import { API_HOST } from "@shared/config";
 
-export const authorizedInstance = axios.create({
+export const authorizedInstance = () => {
+  const token = useUserStore.getState().accessToken
+  return axios.create({
   baseURL: API_HOST,
   headers: {
     'Authorization': `Bearer ${token}`
   }
 })
+}

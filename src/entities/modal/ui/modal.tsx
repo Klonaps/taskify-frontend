@@ -1,15 +1,13 @@
 import { ReactNode, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 interface ModalProps {
   children: ReactNode
-  isVisible: boolean
   closeHandler: () => void
 }
 
-export const Modal = ({ isVisible, closeHandler, children }: ModalProps) => {
+export const Modal = ({ closeHandler, children }: ModalProps) => {
   useEffect(() => {
     const keydownCloseModal = (e: KeyboardEvent): void => {
       if (e.key === "Escape") {
@@ -25,30 +23,26 @@ export const Modal = ({ isVisible, closeHandler, children }: ModalProps) => {
 
   const portalContainder = document.getElementById("portal");
   return createPortal(
-    <AnimatePresence mode="wait">
-      {isVisible && (
-        <div className="w-screen h-screen absolute inset-0 flex items-center justify-center">
-          <motion.div
-            className="relative bg-white rounded-[16px] border-[2px] border-gray-100 overflow-hidden flex flex-col z-10"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{
-              duration: 0.125,
-            }}
-          >
-            {children}
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closeHandler}
-            className="absolute inset-0 bg-black/40"
-          />
-        </div>
-      )}
-    </AnimatePresence>,
+    <div className="w-screen h-screen absolute inset-0 flex items-center justify-center">
+      <motion.div
+        className="relative bg-white rounded-[16px] border-[2px] border-gray-100 overflow-hidden flex flex-col z-10"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.9 }}
+        transition={{
+          duration: 0.125,
+        }}
+      >
+        {children}
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={closeHandler}
+        className="absolute inset-0 bg-black/40"
+      />
+    </div>,
     portalContainder!
-  )
+  );
 }

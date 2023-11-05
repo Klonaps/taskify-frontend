@@ -35,7 +35,7 @@ export const Button = (props: ButtonProps) => {
     <button
       onClick={props.handler}
       className={twMerge(
-        "relative rounded-md py-1 px-4 font-normal text-[14px] overflow-hidden flex gap-1 items-center justify-center transition-all",
+        "relative rounded-md py-1 px-6 font-normal text-[14px] overflow-hidden flex gap-1 items-center justify-center transition-all",
         variantToClassName[variant],
         sizesToClassName[size],
         cn

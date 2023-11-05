@@ -6,12 +6,13 @@ import { CATEGORY_PATH } from "@shared/model"
 import { ICategory } from ".."
 
 const getCategories = async () => {
-  const res = await authorizedInstance.get<ICategory[]>(CATEGORY_PATH)
+  const res = await authorizedInstance().get<ICategory[]>(CATEGORY_PATH)
   return res.data
 }
 export const useGetCategoriesQuery = () => {
   return useQuery({
     queryFn: getCategories,
-    queryKey: ['categories']
+    queryKey: ['categories'],
+    refetchOnWindowFocus: false,
   })
 }

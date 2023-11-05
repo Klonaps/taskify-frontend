@@ -13,11 +13,11 @@ export const LoginForm = () => {
 
   useEffect(() => {
     if (error) {
-      const errMessage = "Имя пользователя или пароль введены неверно";
-        setError("login", { message: errMessage }, { shouldFocus: false });
-        setError("password", { message: errMessage }, { shouldFocus: false });
+      const errMessage = "Имя пользователя или пароль введены неверно"
+      setError("login", { message: errMessage }, { shouldFocus: false })
+      setError("password", { message: errMessage }, { shouldFocus: false })
     }
-  }, [error, setError]);
+  }, [error, setError])
 
   const handleLogin: SubmitHandler<LoginDto> = (data) => {
     mutate(data)

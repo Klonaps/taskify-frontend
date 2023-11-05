@@ -4,41 +4,41 @@ export const categoryColors: ICategoryColor[] = [
   {
     id: 0,
     name: 'black',
-    color: '#000000'
+    color: '0, 0, 0'
   },
   {
     id: 1,
     name: 'sky',
-    color: '#0ea5e9'
+    color: '14, 165, 233'
   },
   {
     id: 2,
     name: 'indigo',
-    color: '#6366f1'
+    color: '99, 102, 241'
   },
   {
     id: 3,
     name: 'fuchsia',
-    color: '#d946ef'
+    color: '217, 70, 239'
   },
   {
     id: 4,
     name: 'pink',
-    color: '#ec4899'
+    color: '236, 72, 153'
   },
   {
     id: 5,
     name: 'orange',
-    color: '#f97316'
+    color: '249, 115, 22'
   },
   {
     id: 6,
     name: 'green',
-    color: '#22c55e'
+    color: '34, 197, 94'
   },
   {
     id: 7,
     name: 'teal',
-    color: '#14b8a6'
+    color: '20, 184, 166'
   },
 ]
