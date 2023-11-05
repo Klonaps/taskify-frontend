@@ -1,4 +1,4 @@
-import { ICategoryColor } from "./types";
+import { ICategoryColor } from "./types"
 
 export const categoryColors: ICategoryColor[] = [
   {

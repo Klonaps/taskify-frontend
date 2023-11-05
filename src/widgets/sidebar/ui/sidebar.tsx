@@ -1,4 +1,9 @@
-import { useGetCategoriesQuery } from "@entities/category"
+import {
+  CategoryIcon,
+  useGetCategoriesQuery,
+  getIcon,
+  getColor,
+} from "@entities/category"
 import { useModalStore } from "@shared/model/store"
 import { MenuButton } from "@shared/ui"
 import { HiOutlinePlus, HiOutlineTag } from "react-icons/hi"
@@ -39,7 +44,13 @@ export const Sidebar = () => {
         {categories?.map((category) => (
           <MenuButton
             key={category.id}
-            startContent={<HiOutlineTag size={18} />}
+            startContent={
+              <CategoryIcon
+                icon={getIcon(category.icon)}
+                size={18}
+                color={`rgb(${getColor(category.color)})`}
+              />
+            }
             title={category.name}
           />
         ))}
