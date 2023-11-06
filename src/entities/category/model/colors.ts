@@ -41,4 +41,14 @@ export const categoryColors: ICategoryColor[] = [
     name: 'teal',
     color: '20, 184, 166'
   },
+  {
+    id: 8,
+    name: 'red',
+    color: '239, 68, 68'
+  },
+  {
+    id: 9,
+    name: 'amber',
+    color: '245, 158, 11'
+  },
 ]
