@@ -16,14 +16,14 @@ const typeColors: Record<ColorType, string> = {
 export const DropdownMenuItem = ({
   children,
   type = 'normal',
-  handler
+  handler,
 }: DropdownMenuItemProps) => {
   return (
     <div
       onClick={handler}
       className={twMerge(
         'px-2 py-1.5 text-sm select-none hover:bg-gray-100 rounded-[4px] overflow-hidden relative flex items-center',
-        typeColors[type]
+        typeColors[type],
       )}
     >
       {children}

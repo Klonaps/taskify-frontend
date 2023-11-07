@@ -30,7 +30,7 @@ export const CreateCategoryModal = () => {
 
   useEffect(() => {
     if (error) {
-      if (isAxiosError(error) && error.status === 400) {
+      if (isAxiosError(error) && error.response?.status === 400) {
         setError(
           'name',
           { message: error.response?.data.message },

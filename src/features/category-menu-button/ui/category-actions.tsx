@@ -4,7 +4,11 @@ import {
   DropdownTrigger,
 } from '@shared/ui/dropdown'
 
-import { HiOutlinePencilAlt, HiOutlineDotsHorizontal, HiOutlineTrash } from 'react-icons/hi'
+import {
+  HiOutlinePencilAlt,
+  HiOutlineDotsHorizontal,
+  HiOutlineTrash,
+} from 'react-icons/hi'
 import { useDeleteCategoryQuery } from '..'
 
 interface CategoryActionsProps {

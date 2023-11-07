@@ -1,3 +1,5 @@
+import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
+
 import { CategoryMenuButton } from '@features/category-menu-button'
 import { useGetCategoriesQuery } from '@entities/category'
 import { useModalStore } from '@shared/model/store'
@@ -40,9 +42,13 @@ export const Sidebar = () => {
       <div>
         <h2 className='text-gray-500 text-sm select-none mb-2'>Категории</h2>
         <MenuButton startContent={<HiOutlineTag size={18} />} title='Все' />
-        {categories?.map(category => (
-          <CategoryMenuButton key={category.id} category={category} />
-        ))}
+        <LayoutGroup>
+          <AnimatePresence>
+            {categories?.map(category => (
+              <CategoryMenuButton key={category.id} category={category} />
+            ))}
+          </AnimatePresence>
+        </LayoutGroup>
         <MenuButton
           startContent={<HiOutlinePlus size={18} />}
           title='Создать категорию'

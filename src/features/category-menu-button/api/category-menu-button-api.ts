@@ -7,7 +7,9 @@ import { CATEGORY_PATH } from '@shared/model'
 // const closeCategoryCreateModal = useModalStore.getState().closeCreateCategoryModal
 
 const deleteCategory = async (id: number) => {
-  const res = await authorizedInstance().delete<string>(CATEGORY_PATH + `/${id}`)
+  const res = await authorizedInstance().delete<string>(
+    CATEGORY_PATH + `/${id}`,
+  )
   return res.data
 }
 export const useDeleteCategoryQuery = () => {
