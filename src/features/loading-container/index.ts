@@ -1,1 +1,1 @@
-export { LoadingContainer } from "./ui/loading-container";
+export { LoadingContainer } from './ui/loading-container'

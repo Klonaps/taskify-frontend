@@ -1,9 +1,9 @@
 import { FC } from 'react'
 
 interface CategoryIconProps {
-  icon: FC;
-  size?: number;
-  color?: string;
+  icon: FC
+  size?: number
+  color?: string
 }
 
 export const CategoryIcon = ({ icon, ...restProps }: CategoryIconProps) => {

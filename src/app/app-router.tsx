@@ -1,12 +1,12 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from 'react-router-dom'
 
-import { RootLayout } from "./layouts/root-layout";
-import { AuthorizedLayout } from "./layouts/authorized-layout";
-import { UnauthorizedLayout } from "./layouts/unauthorized-layout";
+import { RootLayout } from './layouts/root-layout'
+import { AuthorizedLayout } from './layouts/authorized-layout'
+import { UnauthorizedLayout } from './layouts/unauthorized-layout'
 
-import { Home } from "@pages/home";
-import { LoginPage } from "@pages/login";
-import { RegisterPage } from "@pages/register";
+import { Home } from '@pages/home'
+import { LoginPage } from '@pages/login'
+import { RegisterPage } from '@pages/register'
 
 export const appRouter = createBrowserRouter([
   {
@@ -16,11 +16,11 @@ export const appRouter = createBrowserRouter([
         element: <AuthorizedLayout />,
         children: [
           {
-            path: "/",
-            element: <Navigate to={"/app"} />,
+            path: '/',
+            element: <Navigate to={'/app'} />,
           },
           {
-            path: "/app",
+            path: '/app',
             element: <Home />,
           },
         ],
@@ -29,15 +29,15 @@ export const appRouter = createBrowserRouter([
         element: <UnauthorizedLayout />,
         children: [
           {
-            path: "/login",
+            path: '/login',
             element: <LoginPage />,
           },
           {
-            path: "/register",
+            path: '/register',
             element: <RegisterPage />,
           },
         ],
       },
     ],
   },
-]);
+])

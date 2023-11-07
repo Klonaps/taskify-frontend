@@ -18,7 +18,7 @@ export const UserAvatar = ({ login }: UserAvatarProps) => {
       }}
     >
       <p
-        className="select-none"
+        className='select-none'
         style={{
           color: textColor,
         }}
@@ -26,5 +26,5 @@ export const UserAvatar = ({ login }: UserAvatarProps) => {
         {firstLetter}
       </p>
     </div>
-  );
+  )
 }

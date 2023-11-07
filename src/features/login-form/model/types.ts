@@ -1,6 +1,6 @@
-import { IUser } from "@entities/user";
+import { IUser } from '@entities/user'
 
 export interface LoginResponse {
-  user: IUser,
+  user: IUser
   accessToken: string
 }

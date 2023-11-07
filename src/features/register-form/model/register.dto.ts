@@ -1,4 +1,4 @@
 export interface RegisterDto {
-  login: string,
+  login: string
   password: string
 }

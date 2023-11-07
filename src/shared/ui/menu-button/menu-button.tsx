@@ -1,20 +1,27 @@
-import { ReactNode } from "react"
-import { twMerge } from "tailwind-merge"
+import { ReactNode } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 interface MenuButtonProps {
-  title: string;
-  startContent?: ReactNode;
-  endContent?: ReactNode;
-  active?: boolean,
-  cn?: string,
+  title: string
+  startContent?: ReactNode
+  endContent?: ReactNode
+  active?: boolean
+  cn?: string
   onClick?: () => void
 }
-export const MenuButton = ({ title, active = false , startContent, endContent, cn = '', onClick }: MenuButtonProps) => {
+export const MenuButton = ({
+  title,
+  active = false,
+  startContent,
+  endContent,
+  cn = '',
+  onClick,
+}: MenuButtonProps) => {
   return (
     <div
       onClick={onClick}
       className={twMerge(
-        'w-full h-9 py-[5px] px-3 flex items-center overflow-hidden rounded-md hover:bg-gray-100 text-sm font-light select-none cursor-pointer',
+        'w-full h-9 py-[5px] px-3 flex items-center rounded-md hover:bg-gray-100 text-sm font-light select-none cursor-pointer',
         cn,
         active && 'bg-gray-100',
       )}

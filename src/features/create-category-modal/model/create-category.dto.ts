@@ -1,5 +1,5 @@
 export interface CreateCategoryDto {
-  name: string;
-  icon: string;
-  color: string;
+  name: string
+  icon: string
+  color: string
 }

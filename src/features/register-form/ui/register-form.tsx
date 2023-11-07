@@ -1,11 +1,11 @@
-import { useEffect } from "react"
-import { isAxiosError } from "axios"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { useEffect } from 'react'
+import { isAxiosError } from 'axios'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
-import { Button, Input } from "@shared/ui"
+import { Button, Input } from '@shared/ui'
 
-import { useUserRegister } from "../api/register-form.api"
-import { RegisterDto } from ".."
+import { useUserRegister } from '../api/register-form.api'
+import { RegisterDto } from '..'
 
 export const RegisterForm = () => {
   const { mutate, isPending, error } = useUserRegister()
@@ -16,49 +16,51 @@ export const RegisterForm = () => {
     if (error) {
       if (isAxiosError(error)) {
         const errMessage = error.response?.data.message
-        setError("login", { message: errMessage }, { shouldFocus: false })
-        setError("password", { message: errMessage }, { shouldFocus: false })
+        setError('login', { message: errMessage }, { shouldFocus: false })
+        setError('password', { message: errMessage }, { shouldFocus: false })
       }
     }
   }, [error, setError])
 
-  const handleLogin: SubmitHandler<RegisterDto> = (data) => {
+  const handleLogin: SubmitHandler<RegisterDto> = data => {
     mutate(data)
   }
-  
+
   return (
     <form
-      className="w-full flex flex-col gap-3"
+      className='w-full flex flex-col gap-3'
       onSubmit={handleSubmit(handleLogin)}
     >
       <Input
-        name="login"
-        lable="Имя пользователя"
-        placeholder="email@gmail.com"
+        name='login'
+        lable='Имя пользователя'
+        placeholder='email@gmail.com'
         error={fieldsErrors.login ? true : false}
-        errorMessage={fieldsErrors.login ? fieldsErrors.login.message : undefined}
+        errorMessage={
+          fieldsErrors.login ? fieldsErrors.login.message : undefined
+        }
         register={register}
         registerOptions={{
           required: true,
         }}
-        autoComplete="usernamea"
+        autoComplete='usernamea'
       />
       <Input
-        name="password"
-        lable="Пароль"
-        placeholder="Введите ваш пароль"
+        name='password'
+        lable='Пароль'
+        placeholder='Введите ваш пароль'
         error={fieldsErrors.login ? true : false}
         register={register}
         registerOptions={{
           required: true,
         }}
-        type="password"
-        autoComplete="current-password"
+        type='password'
+        autoComplete='current-password'
       />
       <Button
-        text="Войти"
-        size="large"
-        cn="w-full mt-1"
+        text='Войти'
+        size='large'
+        cn='w-full mt-1'
         isLoading={isPending}
       />
     </form>
