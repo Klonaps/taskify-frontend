@@ -1,7 +1,7 @@
 import { ReactNode, createContext, useEffect, useRef, useState } from 'react'
 
 interface DropdownProps {
-  children: ReactNode,
+  children: ReactNode
   closeOnMouseLeave?: boolean
 }
 
@@ -13,7 +13,10 @@ export interface IDropwDownContext {
 export const DropwDownContext = createContext<IDropwDownContext | undefined>(
   undefined,
 )
-export const Dropdown = ({ children, closeOnMouseLeave = false }: DropdownProps) => {
+export const Dropdown = ({
+  children,
+  closeOnMouseLeave = false,
+}: DropdownProps) => {
   const [isMouseEnter, setIsMouseEnter] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)

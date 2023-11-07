@@ -1,7 +1,19 @@
-import { DropdownContent, DropdownMenuItem, DropdownTrigger } from '@shared/ui/dropdown'
-import { HiOutlineDotsHorizontal } from 'react-icons/hi'
+import {
+  DropdownContent,
+  DropdownMenuItem,
+  DropdownTrigger,
+} from '@shared/ui/dropdown'
 
-export const CategoryActions = () => {
+import { HiOutlinePencilAlt, HiOutlineDotsHorizontal, HiOutlineTrash } from 'react-icons/hi'
+import { useDeleteCategoryQuery } from '..'
+
+interface CategoryActionsProps {
+  id: number
+}
+
+export const CategoryActions = ({ id }: CategoryActionsProps) => {
+  const { mutate: deleteHandler } = useDeleteCategoryQuery()
+
   return (
     <>
       <DropdownTrigger>
@@ -10,10 +22,16 @@ export const CategoryActions = () => {
         </div>
       </DropdownTrigger>
       <DropdownContent className='w-[180px] top-[32px] right-[-65px]'>
-        <DropdownMenuItem fontSize='xs' handler={() => console.log()}>
+        <DropdownMenuItem handler={() => console.log()}>
+          <span className='mr-2'>
+            <HiOutlinePencilAlt size={18} />
+          </span>
           Редактировать
         </DropdownMenuItem>
-        <DropdownMenuItem fontSize='xs' handler={() => console.log()}>
+        <DropdownMenuItem type='danger' handler={() => deleteHandler(id)}>
+          <span className='mr-2'>
+            <HiOutlineTrash size={18} />
+          </span>
           Удалить
         </DropdownMenuItem>
       </DropdownContent>
