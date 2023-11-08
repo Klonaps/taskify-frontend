@@ -26,7 +26,7 @@ export const CategoryMenuButton = ({ category }: CategoryMenuButtonProps) => {
               color={`rgb(${getColor(category.color)})`}
             />
           }
-          endContent={<CategoryActions id={category.id} />}
+          endContent={<CategoryActions category={category} />}
           title={category.name}
         />
       </Dropdown>

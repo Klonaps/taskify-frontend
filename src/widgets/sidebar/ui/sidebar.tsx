@@ -1,4 +1,4 @@
-import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
+import { AnimatePresence, LayoutGroup } from 'framer-motion'
 
 import { CategoryMenuButton } from '@features/category-menu-button'
 import { useGetCategoriesQuery } from '@entities/category'
