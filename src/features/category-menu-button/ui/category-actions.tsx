@@ -1,8 +1,10 @@
+import { ICategory } from '@entities/category'
 import {
   DropdownContent,
   DropdownMenuItem,
   DropdownTrigger,
 } from '@shared/ui/dropdown'
+import { useModalStore } from '@shared/model/store'
 
 import {
   HiOutlinePencilAlt,
@@ -12,11 +14,12 @@ import {
 import { useDeleteCategoryQuery } from '..'
 
 interface CategoryActionsProps {
-  id: number
+  category: ICategory
 }
 
-export const CategoryActions = ({ id }: CategoryActionsProps) => {
+export const CategoryActions = ({ category }: CategoryActionsProps) => {
   const { mutate: deleteHandler } = useDeleteCategoryQuery()
+  const openEditCategoryModal = useModalStore(state => state.openEditCategoryModal)
 
   return (
     <>
@@ -26,13 +29,13 @@ export const CategoryActions = ({ id }: CategoryActionsProps) => {
         </div>
       </DropdownTrigger>
       <DropdownContent className='w-[180px] top-[32px] right-[-65px]'>
-        <DropdownMenuItem handler={() => console.log()}>
+        <DropdownMenuItem closeOnClick handler={() => openEditCategoryModal(category)}>
           <span className='mr-2'>
             <HiOutlinePencilAlt size={18} />
           </span>
           Редактировать
         </DropdownMenuItem>
-        <DropdownMenuItem type='danger' handler={() => deleteHandler(id)}>
+        <DropdownMenuItem type='danger' handler={() => deleteHandler(category.id)}>
           <span className='mr-2'>
             <HiOutlineTrash size={18} />
           </span>
